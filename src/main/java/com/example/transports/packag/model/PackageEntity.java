@@ -1,5 +1,6 @@
 package com.example.transports.packag.model;
 
+import com.example.transports.city.model.CityEntity;
 import com.example.transports.user.model.DriverEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -32,6 +33,11 @@ public class PackageEntity {
     @JoinColumn(name = "driver_id")
     private DriverEntity driver;
 
+    @JsonBackReference("city-packages")
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private CityEntity city;
+
     public Long getCode() {
         return code;
     }
@@ -54,6 +60,22 @@ public class PackageEntity {
 
     public void setDestinationDirection(String destinationDirection) {
         this.destinationDirection = destinationDirection;
+    }
+
+    public DriverEntity getDriver() {
+        return driver;
+    }
+
+    public void setDriver(DriverEntity driver) {
+        this.driver = driver;
+    }
+
+    public CityEntity getCity() {
+        return city;
+    }
+
+    public void setCity(CityEntity city) {
+        this.city = city;
     }
 
 }

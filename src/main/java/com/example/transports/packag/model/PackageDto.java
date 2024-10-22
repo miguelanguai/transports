@@ -1,5 +1,6 @@
 package com.example.transports.packag.model;
 
+import com.example.transports.city.model.CityEntity;
 import com.example.transports.user.model.DriverEntity;
 
 public class PackageDto {
@@ -11,6 +12,8 @@ public class PackageDto {
     private String destinationDirection;
 
     private DriverEntity driver;
+
+    private CityEntity city;
 
     public Long getCode() {
         return code;
@@ -36,4 +39,11 @@ public class PackageDto {
         this.destinationDirection = destinationDirection;
     }
 
+    public CityEntity getCity() {
+        return city;
+    }
+
+    public void setCity(CityEntity city) {
+        this.city = city;
+    }
 }

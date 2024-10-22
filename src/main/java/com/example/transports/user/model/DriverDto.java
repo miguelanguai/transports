@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.transports.authentication.model.Role;
 import com.example.transports.authentication.model.Token;
+import com.example.transports.packag.model.PackageEntity;
 
 public class DriverDto {
 
@@ -30,6 +31,8 @@ public class DriverDto {
     private Role role;
 
     private List<Token> tokens;
+
+    private List<PackageEntity> packages;
 
     /**
      * 
@@ -221,5 +224,21 @@ public class DriverDto {
      */
     public void setTokens(List<Token> tokens) {
         this.tokens = tokens;
+    }
+
+    /**
+     * 
+     * @return {@link List} of {@link PackageEntity}s
+     */
+    public List<PackageEntity> getPackages() {
+        return packages;
+    }
+
+    /**
+     * 
+     * @param packages new value of {@link #getPackages}
+     */
+    public void setPackages(List<PackageEntity> packages) {
+        this.packages = packages;
     }
 }
