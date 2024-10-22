@@ -1,10 +1,16 @@
 package com.example.transports.city.model;
 
+import java.util.List;
+
+import com.example.transports.destination.model.DestinationEntity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +24,10 @@ public class CityEntity {
 
     @Column(name = "name")
     private String name;
+
+    @JsonManagedReference("city-destinations")
+    @OneToMany(mappedBy = "city")
+    private List<DestinationEntity> destinations;
 
     public Long getId() {
         return id;
@@ -33,6 +43,14 @@ public class CityEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<DestinationEntity> getDestinations() {
+        return destinations;
+    }
+
+    public void setDestinations(List<DestinationEntity> destinations) {
+        this.destinations = destinations;
     }
 
 }
