@@ -21,8 +21,8 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
-    public PackageEntity findById(Long id) {
-        return this.packageRepository.findById(id).orElse(null);
+    public PackageEntity findById(Long id) throws Exception {
+        return this.packageRepository.findById(id).orElseThrow(() -> new Exception("Not exists"));
     }
 
     @Override

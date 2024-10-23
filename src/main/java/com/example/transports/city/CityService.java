@@ -9,7 +9,7 @@ public interface CityService {
 
     List<CityEntity> findAll();
 
-    CityEntity findById(Long id);
+    CityEntity findById(Long id) throws Exception;
 
     void save(CityDto cityDto) throws Exception;
 

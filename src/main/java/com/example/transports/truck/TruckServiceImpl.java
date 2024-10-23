@@ -21,8 +21,8 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public TruckEntity findById(Long id) {
-        return this.truckRepository.findById(id).orElse(null);
+    public TruckEntity findById(Long id) throws Exception {
+        return this.truckRepository.findById(id).orElseThrow(() -> new Exception("Not exists"));
     }
 
     @Override

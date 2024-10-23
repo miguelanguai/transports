@@ -34,7 +34,7 @@ public class DestinationController {
     }
 
     @RequestMapping(path = "/d/destination/{id}", method = RequestMethod.GET)
-    public DestinationDto findById(@PathVariable(name = "id", required = true) Long id) {
+    public DestinationDto findById(@PathVariable(name = "id", required = true) Long id) throws Exception {
         DestinationDto destinationDto = new DestinationDto();
         DestinationEntity destinationEntity = destinationService.findById(id);
         BeanUtils.copyProperties(destinationEntity, destinationDto);

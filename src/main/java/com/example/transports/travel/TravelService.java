@@ -9,7 +9,7 @@ public interface TravelService {
 
     List<TravelEntity> findAll();
 
-    TravelEntity findById(Long id);
+    TravelEntity findById(Long id) throws Exception;
 
     void save(TravelDto travelDto) throws Exception;
 

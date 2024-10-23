@@ -34,7 +34,7 @@ public class PackageController {
     }
 
     @RequestMapping(path = "/a/package/{id}", method = RequestMethod.GET)
-    public PackageDto findById(@PathVariable(name = "id", required = true) Long id) {
+    public PackageDto findById(@PathVariable(name = "id", required = true) Long id) throws Exception {
         PackageDto packageDto = new PackageDto();
         PackageEntity packageEntity = this.packageService.findById(id);
         BeanUtils.copyProperties(packageEntity, packageDto);

@@ -9,7 +9,7 @@ public interface TruckService {
 
     List<TruckEntity> findAll();
 
-    TruckEntity findById(Long id);
+    TruckEntity findById(Long id) throws Exception;
 
     void save(TruckDto truckDto) throws Exception;
 

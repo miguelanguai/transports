@@ -34,7 +34,7 @@ public class TravelController {
     }
 
     @RequestMapping(path = "/a/travel/{id}", method = RequestMethod.GET)
-    public TravelDto findById(@PathVariable(name = "id", required = true) Long id) {
+    public TravelDto findById(@PathVariable(name = "id", required = true) Long id) throws Exception {
         TravelDto travelDto = new TravelDto();
         TravelEntity travelEntity = travelService.findById(id);
         BeanUtils.copyProperties(travelEntity, travelDto);

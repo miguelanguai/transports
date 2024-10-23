@@ -21,8 +21,8 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public CityEntity findById(Long id) {
-        return this.cityRepository.findById(id).orElse(null);
+    public CityEntity findById(Long id) throws Exception {
+        return this.cityRepository.findById(id).orElseThrow(() -> new Exception("Not exists"));
     }
 
     @Override

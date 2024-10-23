@@ -21,8 +21,8 @@ public class TravelServiceImpl implements TravelService {
     }
 
     @Override
-    public TravelEntity findById(Long id) {
-        return this.travelRepository.findById(id).orElse(null);
+    public TravelEntity findById(Long id) throws Exception {
+        return this.travelRepository.findById(id).orElseThrow(() -> new Exception("Not exists"));
     }
 
     @Override

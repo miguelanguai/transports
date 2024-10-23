@@ -34,7 +34,7 @@ public class TruckController {
     }
 
     @RequestMapping(path = "/d/truck/{id}", method = RequestMethod.GET)
-    public TruckDto findById(@PathVariable(name = "id", required = true) Long id) {
+    public TruckDto findById(@PathVariable(name = "id", required = true) Long id) throws Exception {
         TruckDto truckDto = new TruckDto();
         TruckEntity truckEntity = truckService.findById(id);
         BeanUtils.copyProperties(truckEntity, truckDto);

@@ -21,8 +21,8 @@ public class DestinationServiceImpl implements DestinationService {
     }
 
     @Override
-    public DestinationEntity findById(Long id) {
-        return this.destinationRepository.findById(id).orElse(null);
+    public DestinationEntity findById(Long id) throws Exception {
+        return this.destinationRepository.findById(id).orElseThrow(() -> new Exception("Not exists"));
     }
 
     @Override

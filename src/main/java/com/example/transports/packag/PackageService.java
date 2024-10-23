@@ -9,7 +9,7 @@ public interface PackageService {
 
     List<PackageEntity> findAll();
 
-    PackageEntity findById(Long id);
+    PackageEntity findById(Long id) throws Exception;
 
     void save(PackageDto employeeDto) throws Exception;
 

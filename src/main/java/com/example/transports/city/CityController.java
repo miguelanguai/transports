@@ -34,7 +34,7 @@ public class CityController {
     }
 
     @RequestMapping(path = "/d/city/{id}", method = RequestMethod.GET)
-    public CityDto findById(@PathVariable(name = "id", required = true) Long id) {
+    public CityDto findById(@PathVariable(name = "id", required = true) Long id) throws Exception {
         CityDto cityDto = new CityDto();
         CityEntity city = cityService.findById(id);
         BeanUtils.copyProperties(city, cityDto);
