@@ -1,4 +1,4 @@
-package com.example.transports.user;
+package com.example.transports.driver;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.example.transports.authentication.model.Role;
-import com.example.transports.user.model.DriverDto;
-import com.example.transports.user.model.DriverEntity;
+import com.example.transports.driver.model.DriverDto;
+import com.example.transports.driver.model.DriverEntity;
 
 import jakarta.transaction.Transactional;
 

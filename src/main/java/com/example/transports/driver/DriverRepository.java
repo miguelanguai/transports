@@ -1,10 +1,10 @@
-package com.example.transports.user;
+package com.example.transports.driver;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.transports.user.model.DriverEntity;
+import com.example.transports.driver.model.DriverEntity;
 
 public interface DriverRepository extends JpaRepository<DriverEntity, Long> {
 

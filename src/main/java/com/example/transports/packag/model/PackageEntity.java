@@ -1,7 +1,7 @@
 package com.example.transports.packag.model;
 
 import com.example.transports.city.model.CityEntity;
-import com.example.transports.user.model.DriverEntity;
+import com.example.transports.driver.model.DriverEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;

@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.transports.authentication.model.Role;
 import com.example.transports.authentication.model.Token;
-import com.example.transports.user.DriverRepository;
-import com.example.transports.user.DriverService;
-import com.example.transports.user.model.DriverEntity;
+import com.example.transports.driver.DriverRepository;
+import com.example.transports.driver.DriverService;
+import com.example.transports.driver.model.DriverEntity;
 
 @Service
 public class AuthenticationService {

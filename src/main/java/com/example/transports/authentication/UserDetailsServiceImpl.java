@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.transports.user.DriverRepository;
+import com.example.transports.driver.DriverRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

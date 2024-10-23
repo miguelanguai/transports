@@ -1,6 +1,6 @@
 package com.example.transports.authentication.model;
 
-import com.example.transports.user.model.DriverEntity;
+import com.example.transports.driver.model.DriverEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
