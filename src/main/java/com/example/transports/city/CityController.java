@@ -27,13 +27,13 @@ public class CityController {
     @Autowired
     CityService cityService;
 
-    @RequestMapping(path = "/p/city", method = RequestMethod.GET)
+    @RequestMapping(path = "/d/city", method = RequestMethod.GET)
     public List<CityDto> findAll() {
         List<CityEntity> cities = this.cityService.findAll();
         return cities.stream().map(e -> mapper.map(e, CityDto.class)).collect(Collectors.toList());
     }
 
-    @RequestMapping(path = "/p/city/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/d/city/{id}", method = RequestMethod.GET)
     public CityDto findById(@PathVariable(name = "id", required = true) Long id) {
         CityDto cityDto = new CityDto();
         CityEntity city = cityService.findById(id);
@@ -41,18 +41,18 @@ public class CityController {
         return cityDto;
     }
 
-    @RequestMapping(path = { "/d/city" }, method = RequestMethod.PUT)
+    @RequestMapping(path = { "/a/city" }, method = RequestMethod.PUT)
     public void save(@RequestBody CityDto cityDto) throws Exception {
         this.cityService.save(cityDto);
     }
 
-    @RequestMapping(path = { "/d/city/{code}" }, method = RequestMethod.PUT)
+    @RequestMapping(path = { "/a/city/{code}" }, method = RequestMethod.PUT)
     public void update(@PathVariable(name = "code", required = false) Long code, @RequestBody CityDto cityDto)
             throws Exception {
         this.cityService.update(code, cityDto);
     }
 
-    @RequestMapping(path = "d/city/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "a/city/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) throws Exception {
         this.cityService.delete(id);
     }

@@ -27,13 +27,13 @@ public class PackageController {
     @Autowired
     PackageService packageService;
 
-    @RequestMapping(path = "/p/package", method = RequestMethod.GET)
+    @RequestMapping(path = "/a/package", method = RequestMethod.GET)
     public List<PackageDto> findAll() {
         List<PackageEntity> entities = this.packageService.findAll();
         return entities.stream().map(e -> mapper.map(e, PackageDto.class)).collect(Collectors.toList());
     }
 
-    @RequestMapping(path = "/p/package/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/a/package/{id}", method = RequestMethod.GET)
     public PackageDto findById(@PathVariable(name = "id", required = true) Long id) {
         PackageDto packageDto = new PackageDto();
         PackageEntity packageEntity = this.packageService.findById(id);
@@ -41,18 +41,18 @@ public class PackageController {
         return packageDto;
     }
 
-    @RequestMapping(path = "/d/package", method = RequestMethod.PUT)
+    @RequestMapping(path = "/a/package", method = RequestMethod.PUT)
     public void save(@RequestBody PackageDto driverDto) throws Exception {
         this.packageService.save(driverDto);
     }
 
-    @RequestMapping(path = "/d/package/{code}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/a/package/{code}", method = RequestMethod.PUT)
     public void update(@PathVariable(name = "code", required = true) Long code, @RequestBody PackageDto driverDto)
             throws Exception {
         this.packageService.update(code, driverDto);
     }
 
-    @RequestMapping(path = "/d/package/{code}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/a/package/{code}", method = RequestMethod.DELETE)
     public void delete(@PathVariable(name = "code", required = true) Long code) throws Exception {
         this.packageService.delete(code);
     }

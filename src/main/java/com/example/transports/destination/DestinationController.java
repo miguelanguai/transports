@@ -27,13 +27,13 @@ public class DestinationController {
     @Autowired
     DestinationService destinationService;
 
-    @RequestMapping(path = "/p/destination", method = RequestMethod.GET)
+    @RequestMapping(path = "/d/destination", method = RequestMethod.GET)
     public List<DestinationDto> findAll() {
         List<DestinationEntity> destinations = this.destinationService.findAll();
         return destinations.stream().map(e -> mapper.map(e, DestinationDto.class)).collect(Collectors.toList());
     }
 
-    @RequestMapping(path = "/p/destination/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/d/destination/{id}", method = RequestMethod.GET)
     public DestinationDto findById(@PathVariable(name = "id", required = true) Long id) {
         DestinationDto destinationDto = new DestinationDto();
         DestinationEntity destinationEntity = destinationService.findById(id);
@@ -41,18 +41,18 @@ public class DestinationController {
         return destinationDto;
     }
 
-    @RequestMapping(path = { "/d/destination" }, method = RequestMethod.PUT)
+    @RequestMapping(path = { "/a/destination" }, method = RequestMethod.PUT)
     public void save(@RequestBody DestinationDto destinationDto) throws Exception {
         this.destinationService.save(destinationDto);
     }
 
-    @RequestMapping(path = { "/d/destination/{code}" }, method = RequestMethod.PUT)
+    @RequestMapping(path = { "/a/destination/{code}" }, method = RequestMethod.PUT)
     public void update(@PathVariable(name = "code", required = false) Long code,
             @RequestBody DestinationDto destinationDto) throws Exception {
         this.destinationService.update(code, destinationDto);
     }
 
-    @RequestMapping(path = "d/destination/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "a/destination/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) throws Exception {
         this.destinationService.delete(id);
     }

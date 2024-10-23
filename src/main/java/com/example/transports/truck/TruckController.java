@@ -27,13 +27,13 @@ public class TruckController {
     @Autowired
     TruckService truckService;
 
-    @RequestMapping(path = "/p/truck", method = RequestMethod.GET)
+    @RequestMapping(path = "/d/truck", method = RequestMethod.GET)
     public List<TruckDto> findAll() {
         List<TruckEntity> trucks = this.truckService.findAll();
         return trucks.stream().map(e -> mapper.map(e, TruckDto.class)).collect(Collectors.toList());
     }
 
-    @RequestMapping(path = "/p/truck/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/d/truck/{id}", method = RequestMethod.GET)
     public TruckDto findById(@PathVariable(name = "id", required = true) Long id) {
         TruckDto truckDto = new TruckDto();
         TruckEntity truckEntity = truckService.findById(id);
@@ -41,17 +41,17 @@ public class TruckController {
         return truckDto;
     }
 
-    @RequestMapping(path = { "/d/truck" }, method = RequestMethod.PUT)
+    @RequestMapping(path = { "/a/truck" }, method = RequestMethod.PUT)
     public void save(@RequestBody TruckDto truckDto) throws Exception {
         this.truckService.save(truckDto);
     }
 
-    @RequestMapping(path = { "/d/truck/{id}" }, method = RequestMethod.PUT)
+    @RequestMapping(path = { "/a/truck/{id}" }, method = RequestMethod.PUT)
     public void update(@PathVariable(name = "id") Long code, @RequestBody TruckDto truckDto) throws Exception {
         this.truckService.update(code, truckDto);
     }
 
-    @RequestMapping(path = "d/truck/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "a/truck/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Long id) throws Exception {
         this.truckService.delete(id);
     }
