@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class TruckEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @Column(name = "truck_id", nullable = false)
     private Long id;
 
     @Column(name = "numberPlate", nullable = false)

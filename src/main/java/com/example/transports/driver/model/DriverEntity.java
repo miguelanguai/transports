@@ -28,7 +28,7 @@ public class DriverEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "driver_id")
     private Long id;
 
     @Column(name = "first_name")
