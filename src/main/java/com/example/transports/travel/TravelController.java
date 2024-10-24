@@ -33,6 +33,12 @@ public class TravelController {
         return travels.stream().map(e -> mapper.map(e, TravelDto.class)).collect(Collectors.toList());
     }
 
+    @RequestMapping(path = "/d/travel", method = RequestMethod.GET)
+    public List<TravelDto> findAllByDriverId() {
+        List<TravelEntity> travels = this.travelService.findAllByDriverId();
+        return travels.stream().map(e -> mapper.map(e, TravelDto.class)).collect(Collectors.toList());
+    }
+
     @RequestMapping(path = "/a/travel/{id}", method = RequestMethod.GET)
     public TravelDto findById(@PathVariable(name = "id", required = true) Long id) throws Exception {
         TravelDto travelDto = new TravelDto();

@@ -9,6 +9,8 @@ public interface TravelService {
 
     List<TravelEntity> findAll();
 
+    List<TravelEntity> findAllByDriverId();
+
     TravelEntity findById(Long id) throws Exception;
 
     void save(TravelDto travelDto) throws Exception;

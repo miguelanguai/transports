@@ -6,6 +6,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.transports.driver.DriverService;
+import com.example.transports.driver.model.DriverEntity;
 import com.example.transports.travel.model.TravelDto;
 import com.example.transports.travel.model.TravelEntity;
 
@@ -15,9 +17,18 @@ public class TravelServiceImpl implements TravelService {
     @Autowired
     TravelRepository travelRepository;
 
+    @Autowired
+    DriverService driverService;
+
     @Override
     public List<TravelEntity> findAll() {
         return this.travelRepository.findAll();
+    }
+
+    @Override
+    public List<TravelEntity> findAllByDriverId() {
+        DriverEntity currentDriver = this.driverService.getCurrentUser();
+        return this.travelRepository.findAllByDriverId(currentDriver.getId());
     }
 
     @Override
