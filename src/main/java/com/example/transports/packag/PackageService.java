@@ -9,6 +9,8 @@ public interface PackageService {
 
     List<PackageEntity> findAll();
 
+    List<PackageEntity> findAllByDriverId();
+
     PackageEntity findById(Long id) throws Exception;
 
     void save(PackageDto employeeDto) throws Exception;

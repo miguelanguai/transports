@@ -33,6 +33,12 @@ public class PackageController {
         return entities.stream().map(e -> mapper.map(e, PackageDto.class)).collect(Collectors.toList());
     }
 
+    @RequestMapping(path = "/d/package", method = RequestMethod.GET)
+    public List<PackageDto> findAllByDriverId() {
+        List<PackageEntity> entities = this.packageService.findAllByDriverId();
+        return entities.stream().map(e -> mapper.map(e, PackageDto.class)).collect(Collectors.toList());
+    }
+
     @RequestMapping(path = "/a/package/{id}", method = RequestMethod.GET)
     public PackageDto findById(@PathVariable(name = "id", required = true) Long id) throws Exception {
         PackageDto packageDto = new PackageDto();
@@ -42,8 +48,8 @@ public class PackageController {
     }
 
     @RequestMapping(path = "/a/package", method = RequestMethod.PUT)
-    public void save(@RequestBody PackageDto driverDto) throws Exception {
-        this.packageService.save(driverDto);
+    public void save(@RequestBody PackageDto packageDto) throws Exception {
+        this.packageService.save(packageDto);
     }
 
     @RequestMapping(path = "/a/package/{code}", method = RequestMethod.PUT)
