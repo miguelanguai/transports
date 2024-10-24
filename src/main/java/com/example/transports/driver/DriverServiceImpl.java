@@ -27,6 +27,11 @@ public class DriverServiceImpl implements DriverService {
         return authentication.getName();
     }
 
+    @Override
+    public DriverEntity findDriverById(Long id) {
+        return this.driverRepository.findById(id).orElse(null);
+    }
+
     /**
      * {@inheritDoc}
      */

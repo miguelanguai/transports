@@ -20,6 +20,8 @@ public interface DriverService {
      */
     DriverEntity getCurrentUser();
 
+    DriverEntity findDriverById(Long id);
+
     /**
      * updates a user
      * 
