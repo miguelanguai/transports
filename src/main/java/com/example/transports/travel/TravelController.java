@@ -47,6 +47,14 @@ public class TravelController {
         return travelDto;
     }
 
+    @RequestMapping(path = "/d/travel/{id}", method = RequestMethod.GET)
+    public TravelDto findByIdByDriverId(@PathVariable(name = "id", required = true) Long id) throws Exception {
+        TravelDto travelDto = new TravelDto();
+        TravelEntity travelEntity = this.travelService.findByIdByDriverId(id);
+        BeanUtils.copyProperties(travelEntity, travelDto);
+        return travelDto;
+    }
+
     @RequestMapping(path = { "/a/travel" }, method = RequestMethod.PUT)
     public void save(@RequestBody TravelDto travelDto) throws Exception {
         this.travelService.save(travelDto);

@@ -37,6 +37,13 @@ public class TravelServiceImpl implements TravelService {
     }
 
     @Override
+    public TravelEntity findByIdByDriverId(Long id) throws Exception {
+        DriverEntity currentDriver = this.driverService.getCurrentUser();
+        return this.travelRepository.findByIdByDriverId(id, currentDriver.getId())
+                .orElseThrow(() -> new Exception("Not exists"));
+    }
+
+    @Override
     public void save(TravelDto travelDto) throws Exception {
         TravelEntity travelEntity = new TravelEntity();
         BeanUtils.copyProperties(travelDto, travelEntity);

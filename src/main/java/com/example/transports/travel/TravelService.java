@@ -13,9 +13,12 @@ public interface TravelService {
 
     TravelEntity findById(Long id) throws Exception;
 
+    TravelEntity findByIdByDriverId(Long id) throws Exception;
+
     void save(TravelDto travelDto) throws Exception;
 
     void update(Long id, TravelDto travelDto) throws Exception;
 
     void delete(Long id);
+
 }
