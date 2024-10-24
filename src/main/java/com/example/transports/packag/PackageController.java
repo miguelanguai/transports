@@ -47,6 +47,14 @@ public class PackageController {
         return packageDto;
     }
 
+    @RequestMapping(path = "/d/package/{id}", method = RequestMethod.GET)
+    public PackageDto findByIdByDriverId(@PathVariable(name = "id", required = true) Long id) throws Exception {
+        PackageDto packageDto = new PackageDto();
+        PackageEntity packageEntity = this.packageService.findByIdByDriverId(id);
+        BeanUtils.copyProperties(packageEntity, packageDto);
+        return packageDto;
+    }
+
     @RequestMapping(path = "/a/package", method = RequestMethod.PUT)
     public void save(@RequestBody PackageDto packageDto) throws Exception {
         this.packageService.save(packageDto);

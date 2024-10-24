@@ -37,6 +37,13 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
+    public PackageEntity findByIdByDriverId(Long id) throws Exception {
+        DriverEntity currentDriver = this.driverService.getCurrentUser();
+        return this.packageRepository.findByIdByDriverId(id, currentDriver.getId())
+                .orElseThrow(() -> new Exception("Not exists"));
+    }
+
+    @Override
     public void save(PackageDto packageDto) throws Exception {
         PackageEntity packageEntity = new PackageEntity();
         BeanUtils.copyProperties(packageDto, packageEntity);

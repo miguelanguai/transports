@@ -13,9 +13,12 @@ public interface PackageService {
 
     PackageEntity findById(Long id) throws Exception;
 
+    PackageEntity findByIdByDriverId(Long id) throws Exception;
+
     void save(PackageDto employeeDto) throws Exception;
 
     void update(Long code, PackageDto packageDto) throws Exception;
 
     void delete(Long code);
+
 }
