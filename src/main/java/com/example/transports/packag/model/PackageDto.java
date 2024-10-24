@@ -39,6 +39,14 @@ public class PackageDto {
         this.destinationDirection = destinationDirection;
     }
 
+    public DriverEntity getDriver() {
+        return driver;
+    }
+
+    public void setDriver(DriverEntity driver) {
+        this.driver = driver;
+    }
+
     public CityEntity getCity() {
         return city;
     }
